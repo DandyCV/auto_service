@@ -27,6 +27,10 @@ The project focuses on:
 - admin login page;
 - admin request table with filtering, pagination, editing, and deletion.
 
+## Deployment
+
+The project is being prepared for deployment on `https://fly.io/` with a single-machine `SQLite` setup backed by a persistent Fly volume.
+
 ## Documentation
 
 Full project documentation has been moved to [doc.md](/home/dandy/projects/auto_service/doc.md).

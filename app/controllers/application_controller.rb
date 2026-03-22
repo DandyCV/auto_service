@@ -19,16 +19,16 @@ class ApplicationController < ActionController::Base
     redirect_to new_admin_session_path, alert: "Please sign in as an administrator."
   end
 
-  def admin_email
-    ENV.fetch("ADMIN_EMAIL", "admin")
+  def admin_user
+    ENV.fetch("ADMIN_USER")
   end
 
   def admin_password
-    ENV.fetch("ADMIN_PASSWORD", "test1234")
+    ENV.fetch("ADMIN_PASSWORD")
   end
 
-  def authenticate_admin(email, password)
-    ActiveSupport::SecurityUtils.secure_compare(email.to_s, admin_email) &&
+  def authenticate_admin(user, password)
+    ActiveSupport::SecurityUtils.secure_compare(user.to_s, admin_user) &&
       ActiveSupport::SecurityUtils.secure_compare(password.to_s, admin_password)
   rescue ArgumentError
     false
