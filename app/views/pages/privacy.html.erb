@@ -1,0 +1,21 @@
+<% content_for :title, t("pages.privacy.title") %>
+<% content_for :meta_description, t("pages.privacy.meta_description") %>
+
+<section class="page">
+  <div class="container">
+    <div class="page-hero fade-in">
+      <p class="page-eyebrow"><%= t("pages.privacy.hero.eyebrow") %></p>
+      <h1><%= t("pages.privacy.hero.title") %></h1>
+      <p class="page-hero__lede"><%= t("pages.privacy.hero.lede") %></p>
+    </div>
+
+    <article class="page-panel fade-in">
+      <h2><%= t("pages.privacy.structure.title") %></h2>
+      <ul class="policy-list">
+        <% t("pages.privacy.structure.points").each do |point| %>
+          <li><%= point %></li>
+        <% end %>
+      </ul>
+    </article>
+  </div>
+</section>

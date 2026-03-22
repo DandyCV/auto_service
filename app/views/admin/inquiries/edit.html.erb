@@ -1,0 +1,63 @@
+<% content_for :title, "Edit Request ##{@inquiry.id} | Auto Service" %>
+<% content_for :meta_description, "Administrator editor for updating a customer service request." %>
+
+<section class="page">
+  <div class="container">
+    <div class="page-hero fade-in">
+      <p class="page-eyebrow">Edit Request</p>
+      <h1>Update request #<%= @inquiry.id %></h1>
+      <p class="page-hero__lede">
+        Adjust customer details and refine the issue notes before returning to the request list.
+      </p>
+    </div>
+
+    <section class="page-panel inquiry-panel fade-in">
+      <% if @inquiry.errors.any? %>
+        <div class="form-alert" role="alert">
+          <strong>Please fix the highlighted fields.</strong>
+          <ul class="form-alert__list">
+            <% @inquiry.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: [ :admin, @inquiry ], class: "inquiry-form" do |form| %>
+        <div class="form-grid">
+          <div class="form-field">
+            <%= form.label :name %>
+            <%= form.text_field :name, autocomplete: "name" %>
+          </div>
+
+          <div class="form-field">
+            <%= form.label :phone %>
+            <%= form.telephone_field :phone, autocomplete: "tel" %>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <%= form.label :inquiry_type, "Service Type" %>
+            <%= form.select :inquiry_type, options_for_select(Inquiry::INQUIRY_TYPES, @inquiry.inquiry_type), { include_blank: "Select a service" } %>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <%= form.label :comment, "Issue Description" %>
+          <%= form.text_area :comment, rows: 6 %>
+        </div>
+
+        <div class="admin-edit__meta">
+          <p><strong>Created:</strong> <%= @inquiry.created_at.strftime("%d %b %Y, %H:%M") %></p>
+          <p><strong>Last updated:</strong> <%= @inquiry.updated_at.strftime("%d %b %Y, %H:%M") %></p>
+        </div>
+
+        <div class="inquiry-form__actions">
+          <%= form.submit "Save Changes", class: "button button--primary" %>
+          <%= link_to "Back to Requests", admin_inquiries_path, class: "button button--secondary" %>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</section>

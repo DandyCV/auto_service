@@ -1,0 +1,32 @@
+<% content_for :title, "Admin Login | Auto Service" %>
+<% content_for :meta_description, "Administrator sign-in for the Auto Service request dashboard." %>
+
+<section class="page">
+  <div class="container admin-auth">
+    <section class="page-panel inquiry-panel admin-auth__panel">
+      <div class="inquiry-panel__header">
+        <p class="page-eyebrow">Administrator Access</p>
+        <h1>Sign in to manage service requests.</h1>
+        <p class="page-panel__lede">
+          Use the administrator credentials configured for this project to review and update incoming customer requests.
+        </p>
+      </div>
+
+      <%= form_with url: admin_session_path, class: "inquiry-form" do |form| %>
+        <div class="form-field">
+          <%= form.label :email, "Login" %>
+          <%= form.text_field :email, placeholder: "admin", autocomplete: "username", spellcheck: false %>
+        </div>
+
+        <div class="form-field">
+          <%= form.label :password, "Password" %>
+          <%= form.password_field :password, placeholder: "Enter password", autocomplete: "current-password" %>
+        </div>
+
+        <div class="inquiry-form__actions">
+          <%= form.submit "Sign In", class: "button button--primary" %>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</section>

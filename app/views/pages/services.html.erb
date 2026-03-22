@@ -1,0 +1,29 @@
+<% content_for :title, t("pages.services.title") %>
+<% content_for :meta_description, t("pages.services.meta_description") %>
+
+<section class="page">
+  <div class="container">
+    <div class="page-hero fade-in">
+      <p class="page-eyebrow"><%= t("pages.services.hero.eyebrow") %></p>
+      <h1><%= t("pages.services.hero.title") %></h1>
+      <p class="page-hero__lede"><%= t("pages.services.hero.lede") %></p>
+    </div>
+
+    <div class="service-grid fade-in">
+      <% services_catalog.each do |service| %>
+        <article class="service-card">
+          <%= service_icon(service[:icon]) %>
+          <div>
+            <h3><%= service[:title] %></h3>
+            <p><%= service[:summary] %></p>
+          </div>
+          <ul class="service-points">
+            <% service[:points].each do |point| %>
+              <li><%= point %></li>
+            <% end %>
+          </ul>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>

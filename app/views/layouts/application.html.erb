@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || t("layout.brand.name") %></title>
+    <meta name="description" content="<%= content_for(:meta_description) || t("layout.meta_description") %>">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Auto Service">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#f36d21">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="site-shell">
+      <header class="site-header" data-menu>
+        <div class="container site-header__inner">
+          <%= link_to root_path, class: "brand" do %>
+            <span class="brand__mark">AS</span>
+            <span class="brand__copy">
+              <strong><%= t("layout.brand.name") %></strong>
+              <span><%= t("layout.brand.tagline") %></span>
+            </span>
+          <% end %>
+
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-button>
+            <%= t("layout.navigation.menu", default: "Menu") %>
+          </button>
+
+          <nav class="site-nav" id="primary-nav" data-menu-panel>
+            <%= nav_link_to t("layout.navigation.home"), root_path %>
+            <%= nav_link_to t("layout.navigation.services"), services_path %>
+            <%= nav_link_to t("layout.navigation.about"), about_path %>
+            <%= nav_link_to t("layout.navigation.contacts"), contacts_path %>
+          </nav>
+
+          <% if current_page?(root_path) || current_page?(contacts_path) %>
+            <button type="button" class="button button--primary button--compact" data-modal-open="request-service-modal"><%= t("layout.navigation.request_service") %></button>
+          <% else %>
+            <%= link_to t("layout.navigation.request_service"), contacts_path(anchor: "request"), class: "button button--primary button--compact" %>
+          <% end %>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <%= render "shared/flash" %>
+        <%= yield %>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <p class="site-footer__eyebrow"><%= t("layout.footer.eyebrow") %></p>
+            <p class="site-footer__copy"><%= t("layout.footer.copy") %></p>
+          </div>
+
+          <div class="site-footer__links">
+            <%= link_to t("layout.navigation.services"), services_path %>
+            <%= link_to t("layout.navigation.about"), about_path %>
+            <%= link_to t("layout.navigation.contacts"), contacts_path %>
+            <%= link_to t("layout.navigation.privacy"), privacy_path %>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

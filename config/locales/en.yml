@@ -1,0 +1,242 @@
+en:
+  layout:
+    meta_description: "Trusted auto repair, diagnostics, and maintenance with a fast, modern customer experience."
+    brand:
+      name: "Auto Service"
+      tagline: "Diagnostics, repair, maintenance"
+    navigation:
+      home: "Home"
+      services: "Services"
+      about: "About"
+      contacts: "Contacts"
+      privacy: "Privacy"
+      request_service: "Request Service"
+    footer:
+      eyebrow: "Auto Service"
+      copy: "Built with Rails, designed to earn trust fast, and ready to grow into a real service business website."
+  inquiry_form:
+    defaults:
+      eyebrow: "Request Service"
+      title: "Tell us what the car needs."
+      description: "Share the issue, leave your phone number, and we will get back to you with the next step for diagnostics, maintenance, or repair."
+    errors:
+      title: "Please fix the highlighted fields."
+    fields:
+      name:
+        label: "Name"
+        placeholder: "Alex Johnson"
+      phone:
+        label: "Phone"
+        placeholder: "+353 87 123 4567"
+      inquiry_type:
+        label: "Service Type"
+        blank: "Select a service"
+      comment:
+        label: "Issue Description (Optional)"
+        placeholder: "Describe the issue, symptoms, or service you need."
+    actions:
+      submit: "Send Request"
+      hint: "We only ask for the details needed to contact you and understand the repair request."
+  pages:
+    home:
+      title: "Auto Service | Modern Auto Repair Website"
+      meta_description: "Neighborhood auto repair, maintenance, brakes, diagnostics, and battery service for daily drivers who want clear communication and dependable work."
+      hero:
+        eyebrow: "Brookhaven Neighborhood Garage"
+        title: "Honest auto service for the cars you rely on every day."
+        lede: "From oil changes and brake work to diagnostics and battery issues, we help local drivers keep their cars dependable without unnecessary upsells or vague repair language."
+        primary_cta: "Request Service"
+        secondary_cta: "Explore Services"
+        metrics:
+          - value: "10+"
+            label: "Years serving local drivers"
+          - value: "Same Day"
+            label: "Oil changes and common maintenance"
+          - value: "6 Days"
+            label: "Open for weekday and Saturday visits"
+      aside:
+        badge: "Why local drivers choose us"
+        title: "Small shop service, clear communication, dependable repairs."
+        lede: "We built this demo around the kind of workshop people actually trust: practical advice, straightforward pricing, and repairs that make sense for a daily-use car."
+        points:
+          - label: "Routine maintenance:"
+            text: "oil changes, fluid checks, filters, belts, and seasonal inspections."
+          - label: "Common repairs:"
+            text: "brakes, suspension, battery issues, warning lights, and drivability problems."
+          - label: "Customer experience:"
+            text: "call us, stop by, or send a request online and we will get back to you quickly."
+      services_section:
+        eyebrow: "Core Services"
+        title: "The core work a small neighborhood garage handles every week."
+        body: "These are the services most local drivers ask for when they need a shop that is fast, practical, and easy to deal with."
+      process_section:
+        eyebrow: "How It Works"
+        title: "Simple process, clear next steps, no guesswork."
+        body: "We keep the process easy to follow so you know what is happening with the car before any major work begins."
+      social_proof:
+        eyebrow: "Social Proof"
+        title: "Built around the kind of trust a local garage has to earn."
+        body: "For this demo, the reviews are fictional but written to sound like the short, practical feedback customers actually leave for a neighborhood shop."
+      cta:
+        eyebrow: "Book a Visit"
+        title: "Need maintenance, a diagnosis, or a quick repair quote?"
+        body: "Send a request in under a minute and tell us what the car needs. We will call you back to confirm the issue, suggest the best next step, and help you book a convenient time."
+        primary: "Request Service"
+        secondary: "About The Garage"
+      modal:
+        eyebrow: "Request Service"
+        title: "Tell us what the car needs."
+        description: "Share the issue, leave your phone number, and we will get back to you with the next step for diagnostics, maintenance, or repair."
+        close_label: "Close request form"
+    about:
+      title: "About | Auto Service"
+      meta_description: "About our small neighborhood garage, how we work, and what customers can expect from diagnostics, maintenance, and repair."
+      hero:
+        eyebrow: "About The Workshop"
+        title: "A small local garage built around practical repairs and clear advice."
+        lede: "We are a neighborhood workshop focused on the kind of jobs most daily drivers actually need: maintenance, warning-light diagnostics, brake work, suspension repairs, batteries, and common engine issues."
+      who_we_are:
+        title: "Who We Are"
+        lede: "This demo garage is meant to feel like the kind of shop customers recommend to family and neighbors: approachable, honest, and focused on useful repairs rather than sales pressure."
+        points:
+          - "Clear communication before any extra work starts"
+          - "Daily-driver maintenance and common repair work"
+          - "Fast callbacks and straightforward service recommendations"
+      how_we_work:
+        title: "How We Work"
+        lede: "Every job starts with a proper check, a realistic explanation, and a practical plan. We focus on keeping the car safe, reliable, and worth maintaining."
+        points:
+          - "Inspection and diagnostics before replacing parts"
+          - "Common repair jobs handled with trusted parts suppliers"
+          - "Simple handoff from booking to final pickup"
+    services:
+      title: "Services | Auto Service"
+      meta_description: "Diagnostics, maintenance, brakes, suspension, batteries, engine repair, and tire service for a small neighborhood garage."
+      hero:
+        eyebrow: "Services"
+        title: "Everyday repair and maintenance for the cars people depend on most."
+        lede: "We focus on the core services a neighborhood workshop is expected to do well: regular maintenance, warning-light diagnostics, brake work, batteries, suspension, and common engine-related repairs."
+    contacts:
+      title: "Contacts | Auto Service"
+      meta_description: "Call, visit, or send a request to book diagnostics, maintenance, brake work, battery service, or common repairs."
+      hero:
+        eyebrow: "Contacts"
+        title: "Customers should know how to reach the shop in seconds."
+        lede: "Call us, stop by during business hours, or send a request online. We will help you figure out whether the car needs maintenance, diagnostics, or a specific repair visit."
+      cta:
+        eyebrow: "Request Service"
+        title: "Open the repair request form as a focused pop-up."
+        body: "Tell us what the car is doing, leave a callback number, and we will follow up with the best next step for inspection, maintenance, or repair."
+        primary: "Request Service"
+        secondary: "See Services"
+      map:
+        iframe_title: "Workshop location map"
+        google_maps: "Open in Google Maps"
+        waze: "Open in Waze"
+      modal:
+        eyebrow: "Request Service"
+        title: "Tell us what the car needs."
+        description: "Leave a short request and a callback number. We will contact you to confirm the symptoms, suggest the next step, and help schedule a visit."
+        close_label: "Close request form"
+    privacy:
+      title: "Privacy | Auto Service"
+      meta_description: "Project placeholder privacy information for the Auto Service website."
+      hero:
+        eyebrow: "Privacy"
+        title: "A launch-ready privacy page still needs real business and legal details."
+        lede: "This is a project placeholder so the site structure includes the required page from the start. It should be reviewed and replaced with business-specific language before launch."
+      structure:
+        title: "Placeholder Structure"
+        points:
+          - "What data the site collects through contact or service request forms"
+          - "Why the business uses that data to respond to inquiries and provide service"
+          - "How long data is stored and who can access it"
+          - "How a visitor can request deletion or correction"
+          - "Cookie, analytics, and third-party map or messenger disclosures"
+    shared:
+      services_catalog:
+        - icon: "diagnostics"
+          title: "Computer Diagnostics"
+          summary: "Quick fault-code scanning and practical troubleshooting before parts are replaced."
+          points:
+            - "Engine, ABS, SRS, and warning light diagnostics"
+            - "Live data checks and road-test confirmation"
+            - "Clear explanation before repair starts"
+        - icon: "maintenance"
+          title: "Oil Change and Maintenance"
+          summary: "Routine service for daily drivers who want fewer surprises and longer engine life."
+          points:
+            - "Oil, filters, fluids, belts, and inspection points"
+            - "Manufacturer-interval maintenance"
+            - "Simple reminders for the next visit"
+        - icon: "brakes"
+          title: "Suspension and Brakes"
+          summary: "Safer stopping, tighter handling, and repairs based on what the car actually needs."
+          points:
+            - "Brake pads, discs, calipers, and hydraulic checks"
+            - "Shocks, bushings, arms, and steering components"
+            - "Final inspection and road-test after repair"
+        - icon: "engine"
+          title: "Engine Repair"
+          summary: "From rough idle and leaks to overheating and drivability issues, handled step by step."
+          points:
+            - "Misfires, oil leaks, cooling system issues"
+            - "Compression and performance-related checks"
+            - "Repair plan approved before major work"
+        - icon: "electrical"
+          title: "Battery and Auto Electrical"
+          summary: "Fast help when the car will not start, drains the battery, or throws intermittent electrical issues."
+          points:
+            - "Battery, starter, and alternator testing"
+            - "Wiring and charging-system diagnosis"
+            - "Lighting, sensors, and fuse-related issues"
+        - icon: "tire"
+          title: "Tire and Seasonal Service"
+          summary: "Tire replacement, balancing, and seasonal checks for a smoother and safer daily drive."
+          points:
+            - "Tire fitting, balancing, and pressure checks"
+            - "Seasonal inspections before long trips"
+            - "Fast same-day appointments when possible"
+      shop_benefits:
+        - title: "Honest Diagnosis"
+          body: "We explain what is urgent, what can wait, and what is not worth replacing yet."
+        - title: "Neighborhood Service"
+          body: "A small local shop where customers deal with real technicians, not a call center."
+        - title: "Same-Day Basics"
+          body: "Oil changes, inspections, batteries, and many common jobs can be handled the same day."
+        - title: "Clear Pricing"
+          body: "We confirm the job before extra work starts and keep estimates easy to understand."
+        - title: "Practical Repairs"
+          body: "We focus on reliable repairs for daily-use cars, not unnecessary upsells."
+        - title: "Easy Contact"
+          body: "Phone, map, and request form are always close by, especially on mobile."
+      work_process_steps:
+        - title: "Request"
+          body: "Call us or send a request with the issue, the car model, and the best callback number."
+        - title: "Confirm"
+          body: "We confirm the symptoms, suggest the next step, and agree on a convenient visit time."
+        - title: "Inspect"
+          body: "The car is checked, diagnosed, and the repair scope is explained before work continues."
+        - title: "Return"
+          body: "You get the car back with a clear summary of what was done and what to watch next."
+      testimonials_feed:
+        - title: "Quick and straightforward"
+          body: "I came in for a brake noise, got a diagnosis the same day, and the final bill matched what they explained."
+        - title: "Great local shop"
+          body: "They changed the oil, found a weak battery, and called before doing anything extra. Exactly how a small garage should work."
+        - title: "No upsell pressure"
+          body: "They told me what needed fixing now and what could wait. That honesty is why I came back."
+      contact_details:
+        - title: "Phone"
+          value: "+353 87 123 4567"
+          body: "Call during business hours for diagnostics, maintenance, or a quick service question."
+        - title: "Business Hours"
+          value: "Mon-Fri, 8:00-18:30 / Sat, 9:00-15:00"
+          body: "Open six days a week for routine maintenance and common repair work."
+        - title: "Address"
+          value: "Unit 3, Galway Car Service Centre, Merlin Park Industrial Estate, Doughiska Rd, Galway, H91 XK15, Ireland"
+          body: "Easy access in Galway for booked visits, quick checks, and everyday repair work."
+      map:
+        embed_url: "https://maps.google.com/maps?q=Unit%203%2C%20Galway%20Car%20Service%20Centre%2C%20Merlin%20Park%20Industrial%20Estate%2C%20Doughiska%20Rd%2C%20Galway%2C%20H91%20XK15%2C%20Ireland&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        google_maps_url: "https://maps.app.goo.gl/gqyzY8NPscta3vEGA"
+        waze_url: "https://www.waze.com/ul?ll=53.2857188,-8.9873226&navigate=yes"

@@ -1,0 +1,65 @@
+<% content_for :title, t("pages.contacts.title") %>
+<% content_for :meta_description, t("pages.contacts.meta_description") %>
+
+<section class="page">
+  <div class="container">
+    <div class="page-hero fade-in">
+      <p class="page-eyebrow"><%= t("pages.contacts.hero.eyebrow") %></p>
+      <h1><%= t("pages.contacts.hero.title") %></h1>
+      <p class="page-hero__lede"><%= t("pages.contacts.hero.lede") %></p>
+    </div>
+
+    <div class="contact-grid fade-in">
+      <% contact_details.each do |detail| %>
+        <article class="contact-card">
+          <h3><%= detail[:title] %></h3>
+          <strong><%= detail[:value] %></strong>
+          <p><%= detail[:body] %></p>
+        </article>
+      <% end %>
+    </div>
+
+    <div class="page-layout page-layout--split contact-layout fade-in" id="request">
+      <section class="cta-strip">
+        <p class="section-eyebrow"><%= t("pages.contacts.cta.eyebrow") %></p>
+        <h2><%= t("pages.contacts.cta.title") %></h2>
+        <p><%= t("pages.contacts.cta.body") %></p>
+        <div class="cta-strip__actions">
+          <button type="button" class="button button--primary" data-modal-open="request-service-modal"><%= t("pages.contacts.cta.primary") %></button>
+          <%= link_to t("pages.contacts.cta.secondary"), services_path, class: "button button--secondary" %>
+        </div>
+      </section>
+
+      <section class="section-card contact-map">
+        <div class="contact-map__frame">
+          <iframe
+            src="<%= workshop_map_embed_url %>"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="<%= t("pages.contacts.map.iframe_title") %>">
+          </iframe>
+        </div>
+
+        <div class="cta-strip__actions contact-map__actions">
+          <%= link_to t("pages.contacts.map.google_maps"), workshop_map_link, target: "_blank", rel: "noopener", class: "button button--primary" %>
+          <%= link_to t("pages.contacts.map.waze"), workshop_waze_link, target: "_blank", rel: "noopener", class: "button button--waze" %>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="modal" id="request-service-modal" data-modal-root hidden>
+  <div class="modal__dialog" data-modal-dialog role="dialog" aria-modal="true" aria-labelledby="contacts_inquiry_form_title">
+    <button type="button" class="modal__close" aria-label="<%= t("pages.contacts.modal.close_label") %>" data-modal-close></button>
+
+    <%= render "inquiries/form",
+      inquiry: @inquiry,
+      frame_id: "contacts_inquiry_form",
+      return_to: contacts_path(anchor: "request"),
+      eyebrow: t("pages.contacts.modal.eyebrow"),
+      title: t("pages.contacts.modal.title"),
+      description: t("pages.contacts.modal.description") %>
+  </div>
+</section>

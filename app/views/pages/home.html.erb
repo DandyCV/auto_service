@@ -1,0 +1,140 @@
+<% content_for :title, t("pages.home.title") %>
+<% content_for :meta_description, t("pages.home.meta_description") %>
+
+<section class="hero">
+  <div class="container hero__grid">
+    <article class="hero__panel fade-in">
+      <p class="hero__eyebrow"><%= t("pages.home.hero.eyebrow") %></p>
+      <h1><%= t("pages.home.hero.title") %></h1>
+      <p class="hero__lede"><%= t("pages.home.hero.lede") %></p>
+
+      <div class="hero__actions">
+        <button type="button" class="button button--primary" data-modal-open="request-service-modal"><%= t("pages.home.hero.primary_cta") %></button>
+        <%= link_to t("pages.home.hero.secondary_cta"), services_path, class: "button button--secondary" %>
+      </div>
+
+      <div class="hero__metrics">
+        <% t("pages.home.hero.metrics").each do |metric| %>
+          <div class="metric">
+            <strong><%= metric[:value] || metric["value"] %></strong>
+            <span><%= metric[:label] || metric["label"] %></span>
+          </div>
+        <% end %>
+      </div>
+    </article>
+
+    <aside class="hero__aside fade-in">
+      <span class="hero__badge"><%= t("pages.home.aside.badge") %></span>
+      <h2><%= t("pages.home.aside.title") %></h2>
+      <p class="page-panel__lede"><%= t("pages.home.aside.lede") %></p>
+
+      <ul class="hero__stack">
+        <% t("pages.home.aside.points").each do |point| %>
+          <li><strong><%= point[:label] || point["label"] %></strong> <%= point[:text] || point["text"] %></li>
+        <% end %>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container section-card fade-in">
+    <div class="section-header">
+      <p class="section-eyebrow"><%= t("pages.home.services_section.eyebrow") %></p>
+      <h2><%= t("pages.home.services_section.title") %></h2>
+      <p><%= t("pages.home.services_section.body") %></p>
+    </div>
+
+    <div class="service-grid">
+      <% services_catalog.each do |service| %>
+        <article class="service-card">
+          <%= service_icon(service[:icon]) %>
+          <div>
+            <h3><%= service[:title] %></h3>
+            <p><%= service[:summary] %></p>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cards-3 fade-in">
+    <% shop_benefits.each do |benefit| %>
+      <article class="info-card">
+        <h3><%= benefit[:title] %></h3>
+        <p><%= benefit[:body] %></p>
+      </article>
+    <% end %>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container section-card fade-in">
+    <div class="section-header">
+      <p class="section-eyebrow"><%= t("pages.home.process_section.eyebrow") %></p>
+      <h2><%= t("pages.home.process_section.title") %></h2>
+      <p><%= t("pages.home.process_section.body") %></p>
+    </div>
+
+    <div class="process-grid">
+      <% work_process_steps.each_with_index do |step, index| %>
+        <article class="process-step">
+          <span class="process-step__index"><%= format("%02d", index + 1) %></span>
+          <div>
+            <h3><%= step[:title] %></h3>
+            <p><%= step[:body] %></p>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-card fade-in">
+      <div class="section-header">
+        <p class="section-eyebrow"><%= t("pages.home.social_proof.eyebrow") %></p>
+        <h2><%= t("pages.home.social_proof.title") %></h2>
+        <p><%= t("pages.home.social_proof.body") %></p>
+      </div>
+
+      <div class="testimonial-grid">
+        <% testimonials_feed.each do |testimonial| %>
+          <article class="testimonial">
+            <h3><%= testimonial[:title] %></h3>
+            <p><%= testimonial[:body] %></p>
+          </article>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="cta-strip fade-in" id="request">
+      <section>
+        <p class="section-eyebrow"><%= t("pages.home.cta.eyebrow") %></p>
+        <h2><%= t("pages.home.cta.title") %></h2>
+        <p><%= t("pages.home.cta.body") %></p>
+        <div class="cta-strip__actions">
+          <button type="button" class="button button--primary" data-modal-open="request-service-modal"><%= t("pages.home.cta.primary") %></button>
+          <%= link_to t("pages.home.cta.secondary"), about_path, class: "button button--secondary" %>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="modal" id="request-service-modal" data-modal-root hidden>
+  <div class="modal__dialog" data-modal-dialog role="dialog" aria-modal="true" aria-labelledby="home_inquiry_form_title">
+    <button type="button" class="modal__close" aria-label="<%= t("pages.home.modal.close_label") %>" data-modal-close></button>
+
+    <%= render "inquiries/form",
+      inquiry: @inquiry,
+      frame_id: "home_inquiry_form",
+      return_to: root_path(anchor: "request"),
+      eyebrow: t("pages.home.modal.eyebrow"),
+      title: t("pages.home.modal.title"),
+      description: t("pages.home.modal.description") %>
+  </div>
+</section>

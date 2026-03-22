@@ -1,0 +1,7 @@
+<%= turbo_stream.replace params[:frame_id].presence || "inquiry_form" do %>
+  <% if @inquiry.persisted? %>
+    <%= render "success", inquiry: @inquiry, frame_id: params[:frame_id], return_to: @return_to %>
+  <% else %>
+    <%= render "form", inquiry: @inquiry, frame_id: params[:frame_id], return_to: @return_to %>
+  <% end %>
+<% end %>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Admin | Auto Service" %></title>
+    <meta name="description" content="<%= content_for(:meta_description) || "Administrator area for managing service requests." %>">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Auto Service Admin">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#f36d21">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="container site-header__inner">
+          <%= link_to admin_signed_in? ? admin_inquiries_path : new_admin_session_path, class: "brand" do %>
+            <span class="brand__mark">AS</span>
+            <span class="brand__copy">
+              <strong>Admin Panel</strong>
+              <span>Service request management</span>
+            </span>
+          <% end %>
+
+          <nav class="site-nav">
+            <% if admin_signed_in? %>
+              <%= nav_link_to "Requests", admin_inquiries_path %>
+              <%= link_to "Public Site", root_path, class: "site-nav__link" %>
+            <% end %>
+          </nav>
+
+          <% if admin_signed_in? %>
+            <%= button_to "Sign Out", admin_session_path, method: :delete, class: "button button--secondary button--compact" %>
+          <% end %>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <%= render "shared/flash" %>
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>

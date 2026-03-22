@@ -1,0 +1,120 @@
+<% content_for :title, "Admin Requests | Auto Service" %>
+<% content_for :meta_description, "Administrator dashboard for viewing and updating service requests." %>
+
+<section class="page">
+  <div class="container">
+    <div class="page-hero fade-in">
+      <p class="page-eyebrow">Admin Dashboard</p>
+      <h1>All service requests in one place.</h1>
+      <p class="page-hero__lede">
+        Review the latest requests, edit customer details, or remove a request when it is no longer needed.
+      </p>
+    </div>
+
+    <section class="section-card admin-table-wrap fade-in">
+      <div class="section-header">
+        <p class="section-eyebrow">Request Queue</p>
+        <h2><%= pluralize(@total_inquiries, "request") %> received</h2>
+        <p>Requests are sorted with the newest submissions first and shown 20 per page.</p>
+      </div>
+
+      <%= form_with url: admin_inquiries_path, method: :get, class: "admin-filters", local: true, data: { preserve_scroll: true } do |form| %>
+        <div class="admin-filters__grid">
+          <div class="form-field">
+            <%= form.label :id, "ID" %>
+            <%= form.number_field :id, value: @filters[:id], placeholder: "Request ID", min: 1 %>
+          </div>
+
+          <div class="form-field">
+            <%= form.label :name, "Name" %>
+            <%= form.text_field :name, value: @filters[:name], placeholder: "Contains name" %>
+          </div>
+
+          <div class="form-field">
+            <%= form.label :phone, "Phone" %>
+            <%= form.text_field :phone, value: @filters[:phone], placeholder: "Contains phone" %>
+          </div>
+
+          <div class="form-field">
+            <%= form.label :inquiry_type, "Service Type" %>
+            <%= form.select :inquiry_type, options_for_select(Inquiry::INQUIRY_TYPES, @filters[:inquiry_type]), include_blank: "All service types" %>
+          </div>
+
+          <div class="form-field admin-filters__issue">
+            <%= form.label :issue, "Issue" %>
+            <%= form.text_field :issue, value: @filters[:issue], placeholder: "Contains issue text" %>
+          </div>
+        </div>
+
+        <div class="admin-filters__actions">
+          <%= form.submit "Apply Filters", class: "button button--primary button--compact" %>
+          <%= link_to "Clear Filters", admin_inquiries_path, class: "button button--secondary button--compact", data: { preserve_scroll: true } %>
+        </div>
+      <% end %>
+
+      <% if @inquiries.any? %>
+        <div class="admin-table-scroll">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Created</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Service Type</th>
+                <th>Issue</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @inquiries.each do |inquiry| %>
+                <tr>
+                  <td>#<%= inquiry.id %></td>
+                  <td><%= inquiry.created_at.strftime("%d %b %Y, %H:%M") %></td>
+                  <td><%= inquiry.name %></td>
+                  <td><%= inquiry.phone %></td>
+                  <td><%= inquiry.inquiry_type.presence || "Not specified" %></td>
+                  <td><%= truncate(inquiry.comment.presence || "No issue details provided.", length: 80) %></td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <%= link_to "Edit", edit_admin_inquiry_path(inquiry), class: "button button--secondary button--compact" %>
+                      <%= button_to "Delete",
+                        admin_inquiry_path(inquiry, @filters.merge(page: @current_page)),
+                        method: :delete,
+                        class: "button button--danger button--compact",
+                        form: {
+                          data: {
+                            turbo_confirm: "Delete request ##{inquiry.id}? This action cannot be undone.",
+                            preserve_scroll: true
+                          }
+                        } %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <% if @total_pages > 1 %>
+          <nav class="admin-pagination" aria-label="Requests pagination">
+            <% if @current_page > 1 %>
+              <%= link_to "Previous", admin_inquiries_path(@filters.merge(page: @current_page - 1)), class: "button button--secondary button--compact", data: { preserve_scroll: true } %>
+            <% end %>
+
+            <p class="admin-pagination__summary">Page <%= @current_page %> of <%= @total_pages %></p>
+
+            <% if @current_page < @total_pages %>
+              <%= link_to "Next", admin_inquiries_path(@filters.merge(page: @current_page + 1)), class: "button button--secondary button--compact", data: { preserve_scroll: true } %>
+            <% end %>
+          </nav>
+        <% end %>
+      <% else %>
+        <div class="empty-state">
+          <h3>No requests found</h3>
+          <p>Try adjusting the filters or clear them to see the full request list.</p>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</section>

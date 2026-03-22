@@ -1,0 +1,21 @@
+<% frame_id = local_assigns.fetch(:frame_id, "inquiry_form") %>
+<% return_to = local_assigns.fetch(:return_to, contacts_path(anchor: "request")) %>
+
+<%= turbo_frame_tag frame_id do %>
+  <section class="page-panel inquiry-panel inquiry-panel--success">
+    <p class="page-eyebrow">Request Received</p>
+    <h2>Thanks, <%= inquiry.name %>.</h2>
+    <p class="page-panel__lede">
+      Your request has been saved and the workshop can now follow up using the phone number you provided.
+    </p>
+
+    <ul class="policy-list">
+      <li><strong>Phone:</strong> <%= inquiry.phone %></li>
+      <% if inquiry.inquiry_type.present? %>
+        <li><strong>Service type:</strong> <%= inquiry.inquiry_type %></li>
+      <% end %>
+    </ul>
+
+    <%= link_to "Send Another Request", return_to, class: "button button--secondary" %>
+  </section>
+<% end %>

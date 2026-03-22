@@ -1,0 +1,58 @@
+<% frame_id = local_assigns.fetch(:frame_id, "inquiry_form") %>
+<% return_to = local_assigns.fetch(:return_to, contacts_path(anchor: "request")) %>
+<% eyebrow = local_assigns.fetch(:eyebrow, t("inquiry_form.defaults.eyebrow")) %>
+<% title = local_assigns.fetch(:title, t("inquiry_form.defaults.title")) %>
+<% description = local_assigns.fetch(:description, t("inquiry_form.defaults.description")) %>
+
+<%= turbo_frame_tag frame_id do %>
+  <section class="page-panel inquiry-panel">
+    <div class="inquiry-panel__header">
+      <p class="page-eyebrow"><%= eyebrow %></p>
+      <h2 id="<%= "#{frame_id}_title" %>"><%= title %></h2>
+      <p class="page-panel__lede"><%= description %></p>
+    </div>
+
+    <%= form_with model: inquiry, class: "inquiry-form" do |form| %>
+      <%= hidden_field_tag :return_to, return_to %>
+      <%= hidden_field_tag :frame_id, frame_id %>
+
+      <% if inquiry.errors.any? %>
+        <div class="form-alert" role="alert">
+          <strong><%= t("inquiry_form.errors.title") %></strong>
+          <ul class="form-alert__list">
+            <% inquiry.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <%= form.label :name, t("inquiry_form.fields.name.label") %>
+          <%= form.text_field :name, placeholder: t("inquiry_form.fields.name.placeholder"), autocomplete: "name" %>
+        </div>
+
+        <div class="form-field">
+          <%= form.label :phone, t("inquiry_form.fields.phone.label") %>
+          <%= form.telephone_field :phone, placeholder: t("inquiry_form.fields.phone.placeholder"), autocomplete: "tel" %>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :inquiry_type, t("inquiry_form.fields.inquiry_type.label") %>
+        <%= form.select :inquiry_type, options_for_select(Inquiry::INQUIRY_TYPES, inquiry.inquiry_type), { include_blank: t("inquiry_form.fields.inquiry_type.blank") } %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :comment, t("inquiry_form.fields.comment.label") %>
+        <%= form.text_area :comment, rows: 5, placeholder: t("inquiry_form.fields.comment.placeholder") %>
+      </div>
+
+      <div class="inquiry-form__actions">
+        <%= form.submit t("inquiry_form.actions.submit"), class: "button button--primary" %>
+        <p class="inquiry-form__hint"><%= t("inquiry_form.actions.hint") %></p>
+      </div>
+    <% end %>
+  </section>
+<% end %>
