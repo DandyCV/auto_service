@@ -7,11 +7,11 @@ module Admin
     end
 
     def create
-      if authenticate_admin(params[:email], params[:password])
+      if authenticate_admin(params[:user], params[:password])
         session[:admin_signed_in] = true
         redirect_to admin_inquiries_path, notice: "Signed in successfully."
       else
-        flash.now[:alert] = "Invalid email or password."
+        flash.now[:alert] = "Invalid login or password."
         render :new, status: :unprocessable_content
       end
     end

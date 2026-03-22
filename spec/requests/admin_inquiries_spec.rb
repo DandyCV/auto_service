@@ -2,14 +2,14 @@ require "rails_helper"
 
 RSpec.describe "Admin inquiries", type: :request do
   around do |example|
-    original_email = ENV["ADMIN_EMAIL"]
+    original_user = ENV["ADMIN_USER"]
     original_password = ENV["ADMIN_PASSWORD"]
 
-    ENV["ADMIN_EMAIL"] = "admin@example.ie"
+    ENV["ADMIN_USER"] = "admin"
     ENV["ADMIN_PASSWORD"] = "secret-pass"
     example.run
   ensure
-    ENV["ADMIN_EMAIL"] = original_email
+    ENV["ADMIN_USER"] = original_user
     ENV["ADMIN_PASSWORD"] = original_password
   end
 
@@ -34,7 +34,7 @@ RSpec.describe "Admin inquiries", type: :request do
   end
 
   before do
-    post admin_session_path, params: { email: "admin@example.ie", password: "secret-pass" }
+    post admin_session_path, params: { user: "admin", password: "secret-pass" }
   end
 
   it "renders the inquiries index with the latest requests first" do

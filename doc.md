@@ -381,7 +381,44 @@ Prepare real advantages, testimonials, service photos, and clear warranty langua
 - Telegram/email notifications;
 - online booking with time slot selection.
 
-## 16. Immediate Next Steps
+## 16. Fly.io Deployment
+
+The project has been prepared for deployment to `https://fly.io/` with a single-machine `SQLite` setup.
+
+### Added Configuration
+
+- [fly.toml](/home/dandy/projects/auto_service/fly.toml)
+- production database paths now support persistent volume mounts via environment variables in [database.yml](/home/dandy/projects/auto_service/config/database.yml)
+- production host and SSL behavior now adapt to Fly in [production.rb](/home/dandy/projects/auto_service/config/environments/production.rb)
+
+### Deployment Assumptions
+
+- single Fly machine;
+- persistent volume mounted at `/data`;
+- `SQLite` remains the production database;
+- no multi-region write setup;
+- suitable for a brochure website with low write volume.
+
+### Fly Setup Steps
+
+1. Install and authenticate `flyctl`.
+2. Adjust the app name in [fly.toml](/home/dandy/projects/auto_service/fly.toml) if `auto-service` is unavailable.
+3. Create the Fly app:
+   - `fly apps create auto-service`
+4. Create the persistent volume:
+   - `fly volumes create data --region lhr --size 1`
+5. Set the Rails master key:
+   - `fly secrets set RAILS_MASTER_KEY=$(cat config/master.key)`
+6. Deploy:
+   - `fly deploy`
+
+### Notes
+
+- `fly.toml` currently uses region `lhr` as a practical default for Ireland.
+- The app is configured to keep one machine running.
+- If the project later needs multiple regions or multi-writer SQLite, we should revisit the setup and likely move to `LiteFS` or `PostgreSQL`.
+
+## 17. Immediate Next Steps
 
 1. Implement the request/inquiry flow with a Rails model and `Turbo`.
 2. Replace placeholder workshop data with real business content.
@@ -390,7 +427,7 @@ Prepare real advantages, testimonials, service photos, and clear warranty langua
 5. Expand SEO metadata and social sharing tags.
 6. Add system specs in `RSpec` for the customer request flow.
 
-## 17. Documentation Rule
+## 18. Documentation Rule
 
 All project documentation must be written in English.
 

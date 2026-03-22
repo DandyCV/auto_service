@@ -2,14 +2,14 @@ require "rails_helper"
 
 RSpec.describe "Admin authentication", type: :request do
   around do |example|
-    original_email = ENV["ADMIN_EMAIL"]
+    original_user = ENV["ADMIN_USER"]
     original_password = ENV["ADMIN_PASSWORD"]
 
-    ENV["ADMIN_EMAIL"] = "admin@example.ie"
+    ENV["ADMIN_USER"] = "admin"
     ENV["ADMIN_PASSWORD"] = "secret-pass"
     example.run
   ensure
-    ENV["ADMIN_EMAIL"] = original_email
+    ENV["ADMIN_USER"] = original_user
     ENV["ADMIN_PASSWORD"] = original_password
   end
 
@@ -28,14 +28,14 @@ RSpec.describe "Admin authentication", type: :request do
   end
 
   it "rejects invalid credentials" do
-    post admin_session_path, params: { email: "admin@example.ie", password: "wrong-pass" }
+    post admin_session_path, params: { user: "admin", password: "wrong-pass" }
 
     expect(response).to have_http_status(:unprocessable_content)
-    expect(response.body).to include("Invalid email or password.")
+    expect(response.body).to include("Invalid login or password.")
   end
 
   it "signs in with valid credentials" do
-    post admin_session_path, params: { email: "admin@example.ie", password: "secret-pass" }
+    post admin_session_path, params: { user: "admin", password: "secret-pass" }
 
     expect(response).to redirect_to(admin_inquiries_path)
     follow_redirect!
