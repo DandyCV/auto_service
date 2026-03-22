@@ -69,13 +69,13 @@
             <tbody>
               <% @inquiries.each do |inquiry| %>
                 <tr>
-                  <td>#<%= inquiry.id %></td>
-                  <td><%= inquiry.created_at.strftime("%d %b %Y, %H:%M") %></td>
-                  <td><%= inquiry.name %></td>
-                  <td><%= inquiry.phone %></td>
-                  <td><%= inquiry.inquiry_type.presence || "Not specified" %></td>
-                  <td><%= truncate(inquiry.comment.presence || "No issue details provided.", length: 80) %></td>
-                  <td>
+                  <td data-label="ID">#<%= inquiry.id %></td>
+                  <td data-label="Created"><%= inquiry.created_at.strftime("%d %b %Y, %H:%M") %></td>
+                  <td data-label="Name"><%= inquiry.name %></td>
+                  <td data-label="Phone"><%= inquiry.phone %></td>
+                  <td data-label="Service Type"><%= inquiry.inquiry_type.presence || "Not specified" %></td>
+                  <td data-label="Issue"><%= truncate(inquiry.comment.presence || "No issue details provided.", length: 80) %></td>
+                  <td data-label="Actions">
                     <div class="admin-table__actions">
                       <%= link_to "Edit", edit_admin_inquiry_path(inquiry), class: "button button--secondary button--compact" %>
                       <%= button_to "Delete",

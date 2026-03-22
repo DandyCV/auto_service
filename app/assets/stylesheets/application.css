@@ -1016,6 +1016,59 @@ textarea {
     flex-direction: column;
     align-items: stretch;
   }
+
+  .admin-table {
+    min-width: 0;
+  }
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table,
+  .admin-table tbody,
+  .admin-table tr,
+  .admin-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-table tbody {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .admin-table tr {
+    padding: 1rem;
+    border: 1px solid rgba(29, 29, 29, 0.08);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--shadow-card);
+  }
+
+  .admin-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .admin-table td + td {
+    margin-top: 0.85rem;
+  }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-graphite-600);
+  }
+
+  .admin-table__actions {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 540px) {
