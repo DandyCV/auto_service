@@ -17,7 +17,7 @@ RSpec.describe "Admin inquiries", type: :request do
     Inquiry.create!(
       name: "Niamh Doyle",
       phone: "+353 87 111 2233",
-      inquiry_type: "Maintenance",
+      inquiry_type: "Oil Changes & Fluid Checks",
       comment: "Needs an oil service next week.",
       created_at: 2.days.ago
     )
@@ -27,7 +27,7 @@ RSpec.describe "Admin inquiries", type: :request do
     Inquiry.create!(
       name: "Cian Murphy",
       phone: "+353 86 555 7788",
-      inquiry_type: "Diagnostics",
+      inquiry_type: "Engine Diagnostics",
       comment: "Engine light came on this morning.",
       created_at: 1.day.ago
     )
@@ -76,7 +76,7 @@ RSpec.describe "Admin inquiries", type: :request do
     targeted_inquiry = Inquiry.create!(
       name: "Aoife Brennan",
       phone: "+353 85 432 1098",
-      inquiry_type: "Electrical",
+      inquiry_type: "Battery and Auto Electrical",
       comment: "Intermittent battery drain after parking overnight."
     )
 
@@ -84,14 +84,14 @@ RSpec.describe "Admin inquiries", type: :request do
       id: targeted_inquiry.id,
       name: "Aoife",
       phone: "432",
-      inquiry_type: "Electrical",
+      inquiry_type: "Battery and Auto Electrical",
       issue: "battery drain"
     )
 
     expect(response).to have_http_status(:ok)
     expect(response.body).to include("Aoife Brennan")
     expect(response.body).to include("+353 85 432 1098")
-    expect(response.body).to include("Electrical")
+    expect(response.body).to include("Battery and Auto Electrical")
     expect(response.body).not_to include("Cian Murphy")
     expect(response.body).not_to include("Niamh Doyle")
   end
@@ -101,17 +101,17 @@ RSpec.describe "Admin inquiries", type: :request do
       Inquiry.create!(
         name: "Brake Customer #{index}",
         phone: "+353 85 300 #{format('%04d', index)}",
-        inquiry_type: "Brake Service",
+        inquiry_type: "Brake Systems",
         comment: "Brake issue #{index}.",
         created_at: index.minutes.ago
       )
     end
 
-    get admin_inquiries_path(inquiry_type: "Brake Service")
+    get admin_inquiries_path(inquiry_type: "Brake Systems")
 
     expect(response).to have_http_status(:ok)
     expect(response.body).to include("Page 1 of 2")
-    expect(response.body).to include("inquiry_type=Brake+Service&amp;page=2")
+    expect(response.body).to include("inquiry_type=Brake+Systems&amp;page=2")
   end
 
   it "renders the edit page" do
@@ -126,7 +126,7 @@ RSpec.describe "Admin inquiries", type: :request do
       inquiry: {
         name: "Cian Murphy",
         phone: "+353 86 555 7788",
-        inquiry_type: "Diagnostics",
+        inquiry_type: "Engine Diagnostics",
         comment: "Booked for a full warning-light inspection."
       }
     }

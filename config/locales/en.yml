@@ -2,7 +2,7 @@ en:
   layout:
     meta_description: "Trusted auto repair, diagnostics, and maintenance with a fast, modern customer experience."
     brand:
-      name: "Auto Service"
+      name: "Kinnegad MOTORS"
       tagline: "Diagnostics, repair, maintenance"
     navigation:
       home: "Home"
@@ -12,7 +12,7 @@ en:
       privacy: "Privacy"
       request_service: "Request Service"
     footer:
-      eyebrow: "Auto Service"
+      eyebrow: "Kinnegad MOTORS"
       copy: "Built with Rails, designed to earn trust fast, and ready to grow into a real service business website."
   inquiry_form:
     defaults:
@@ -39,10 +39,10 @@ en:
       hint: "We only ask for the details needed to contact you and understand the repair request."
   pages:
     home:
-      title: "Auto Service | Modern Auto Repair Website"
+      title: "Kinnegad MOTORS | Auto Repair in Kinnegad"
       meta_description: "Neighborhood auto repair, maintenance, brakes, diagnostics, and battery service for daily drivers who want clear communication and dependable work."
       hero:
-        eyebrow: "Brookhaven Neighborhood Garage"
+        eyebrow: "Kinnegad MOTORS"
         title: "Honest auto service for the cars you rely on every day."
         lede: "From oil changes and brake work to diagnostics and battery issues, we help local drivers keep their cars dependable without unnecessary upsells or vague repair language."
         primary_cta: "Request Service"
@@ -89,7 +89,7 @@ en:
         description: "Share the issue, leave your phone number, and we will get back to you with the next step for diagnostics, maintenance, or repair."
         close_label: "Close request form"
     about:
-      title: "About | Auto Service"
+      title: "About | Kinnegad MOTORS"
       meta_description: "About our small neighborhood garage, how we work, and what customers can expect from diagnostics, maintenance, and repair."
       hero:
         eyebrow: "About The Workshop"
@@ -110,14 +110,14 @@ en:
           - "Common repair jobs handled with trusted parts suppliers"
           - "Simple handoff from booking to final pickup"
     services:
-      title: "Services | Auto Service"
+      title: "Services | Kinnegad MOTORS"
       meta_description: "Diagnostics, maintenance, brakes, suspension, batteries, engine repair, and tire service for a small neighborhood garage."
       hero:
         eyebrow: "Services"
         title: "Everyday repair and maintenance for the cars people depend on most."
         lede: "We focus on the core services a neighborhood workshop is expected to do well: regular maintenance, warning-light diagnostics, brake work, batteries, suspension, and common engine-related repairs."
     contacts:
-      title: "Contacts | Auto Service"
+      title: "Contacts | Kinnegad MOTORS"
       meta_description: "Call, visit, or send a request to book diagnostics, maintenance, brake work, battery service, or common repairs."
       hero:
         eyebrow: "Contacts"
@@ -139,8 +139,8 @@ en:
         description: "Leave a short request and a callback number. We will contact you to confirm the symptoms, suggest the next step, and help schedule a visit."
         close_label: "Close request form"
     privacy:
-      title: "Privacy | Auto Service"
-      meta_description: "Project placeholder privacy information for the Auto Service website."
+      title: "Privacy | Kinnegad MOTORS"
+      meta_description: "Project placeholder privacy information for the Kinnegad MOTORS website."
       hero:
         eyebrow: "Privacy"
         title: "A launch-ready privacy page still needs real business and legal details."
@@ -155,48 +155,90 @@ en:
           - "Cookie, analytics, and third-party map or messenger disclosures"
     shared:
       services_catalog:
-        - icon: "diagnostics"
-          title: "Computer Diagnostics"
-          summary: "Quick fault-code scanning and practical troubleshooting before parts are replaced."
+        - icon: "brake_disc"
+          title: "Brake Systems"
+          summary: "Inspection, maintenance, and repair work for safer stopping and more confident everyday driving."
           points:
-            - "Engine, ABS, SRS, and warning light diagnostics"
-            - "Live data checks and road-test confirmation"
-            - "Clear explanation before repair starts"
-        - icon: "maintenance"
-          title: "Oil Change and Maintenance"
-          summary: "Routine service for daily drivers who want fewer surprises and longer engine life."
+            - "Brake wear checks and system inspection"
+            - "Pads, discs, and related brake components"
+            - "Road-safe braking performance"
+        - icon: "suspension"
+          title: "Steering and Suspension Repair"
+          summary: "Repair work for steering and suspension components that affect stability, comfort, and control."
           points:
-            - "Oil, filters, fluids, belts, and inspection points"
-            - "Manufacturer-interval maintenance"
-            - "Simple reminders for the next visit"
-        - icon: "brakes"
-          title: "Suspension and Brakes"
-          summary: "Safer stopping, tighter handling, and repairs based on what the car actually needs."
-          points:
-            - "Brake pads, discs, calipers, and hydraulic checks"
-            - "Shocks, bushings, arms, and steering components"
-            - "Final inspection and road-test after repair"
-        - icon: "engine"
-          title: "Engine Repair"
-          summary: "From rough idle and leaks to overheating and drivability issues, handled step by step."
-          points:
-            - "Misfires, oil leaks, cooling system issues"
-            - "Compression and performance-related checks"
-            - "Repair plan approved before major work"
-        - icon: "electrical"
-          title: "Battery and Auto Electrical"
-          summary: "Fast help when the car will not start, drains the battery, or throws intermittent electrical issues."
-          points:
-            - "Battery, starter, and alternator testing"
-            - "Wiring and charging-system diagnosis"
-            - "Lighting, sensors, and fuse-related issues"
+            - "Steering and suspension inspections"
+            - "Repair of worn or damaged components"
+            - "Improved handling and road feel"
         - icon: "tire"
-          title: "Tire and Seasonal Service"
-          summary: "Tire replacement, balancing, and seasonal checks for a smoother and safer daily drive."
+          title: "Tire Services"
+          summary: "Tyre fitting, replacement, balancing, and inspection work for safer handling and smoother driving."
           points:
-            - "Tire fitting, balancing, and pressure checks"
-            - "Seasonal inspections before long trips"
-            - "Fast same-day appointments when possible"
+            - "Tyre condition and wear checks"
+            - "Fitting, replacement, and balancing"
+            - "Seasonal tyre support when needed"
+        - icon: "oil"
+          title: "Oil Changes & Fluid Checks"
+          summary: "Essential maintenance to protect the engine and keep the car's key systems running as they should."
+          points:
+            - "Engine oil and filter changes"
+            - "Fluid level and condition checks"
+            - "Simple routine maintenance with clear intervals"
+        - icon: "diagnostics"
+          title: "Engine Diagnostics"
+          summary: "Practical diagnostics to identify engine faults before unnecessary parts are replaced."
+          points:
+            - "Warning light and drivability checks"
+            - "Fault finding before repair work begins"
+            - "Clear explanation of the next step"
+        - icon: "filter"
+          title: "Air and Cabin Filter Replacement"
+          summary: "Routine filter replacement to help engine breathing, cabin comfort, and regular service upkeep."
+          points:
+            - "Engine air filter replacement"
+            - "Cabin filter replacement"
+            - "Part of regular service maintenance"
+        - icon: "battery"
+          title: "Battery and Auto Electrical"
+          summary: "Battery checks and electrical fault finding for starting, charging, lighting, and other common vehicle issues."
+          points:
+            - "Battery condition and charging checks"
+            - "Starting, charging, and electrical system diagnosis"
+            - "Replacement and repair support when needed"
+        - icon: "bodywork"
+          title: "Bodywork and Trim"
+          summary: "Practical body and trim repair support for cosmetic damage and everyday exterior issues."
+          points:
+            - "Body repair support"
+            - "Trim-related fixes and finishing work"
+            - "Practical workshop solutions"
+        - icon: "exhaust"
+          title: "Exhaust Systems"
+          summary: "Exhaust inspection and repair work to deal with leaks, noise, and worn components."
+          points:
+            - "Exhaust condition checks"
+            - "Repair or replacement of worn sections"
+            - "Quieter and safer daily driving"
+        - icon: "gearbox"
+          title: "Gearbox and Transmission Repair"
+          summary: "Transmission-related repair work for shifting, driveline, and power-delivery issues that affect overall drivability."
+          points:
+            - "Gearbox, transmission, and driveline checks"
+            - "Repair support for transmission faults"
+            - "Practical next-step guidance"
+        - icon: "alignment"
+          title: "Wheel Alignment"
+          summary: "Wheel alignment service to improve handling, reduce uneven tyre wear, and help the car track properly."
+          points:
+            - "Alignment checks and correction"
+            - "Support for steering pull and tyre wear"
+            - "Better straight-line control"
+        - icon: "inspection"
+          title: "Pre-NCT Check"
+          summary: "Pre-test inspection to help identify common issues before the vehicle goes in for its NCT."
+          points:
+            - "Practical pre-NCT inspection"
+            - "Checks on common test-related items"
+            - "Advice on what should be fixed first"
       shop_benefits:
         - title: "Honest Diagnosis"
           body: "We explain what is urgent, what can wait, and what is not worth replacing yet."
@@ -228,15 +270,15 @@ en:
           body: "They told me what needed fixing now and what could wait. That honesty is why I came back."
       contact_details:
         - title: "Phone"
-          value: "+353 87 123 4567"
+          value: "+353 87 613 7169"
           body: "Call during business hours for diagnostics, maintenance, or a quick service question."
         - title: "Business Hours"
-          value: "Mon-Fri, 8:00-18:30 / Sat, 9:00-15:00"
-          body: "Open six days a week for routine maintenance and common repair work."
+          value: "Mon-Sat, 10:00-19:00 / Sun, Closed"
+          body: "Open six days a week for routine maintenance, diagnostics, and everyday repair work."
         - title: "Address"
-          value: "Unit 3, Galway Car Service Centre, Merlin Park Industrial Estate, Doughiska Rd, Galway, H91 XK15, Ireland"
-          body: "Easy access in Galway for booked visits, quick checks, and everyday repair work."
+          value: "Baltigeer, Kinnegad, Co. Meath, N91 HH95, Ireland"
+          body: "Easy access in Kinnegad for booked visits, quick checks, and everyday repair work."
       map:
-        embed_url: "https://maps.google.com/maps?q=Unit%203%2C%20Galway%20Car%20Service%20Centre%2C%20Merlin%20Park%20Industrial%20Estate%2C%20Doughiska%20Rd%2C%20Galway%2C%20H91%20XK15%2C%20Ireland&t=&z=16&ie=UTF8&iwloc=&output=embed"
-        google_maps_url: "https://maps.app.goo.gl/gqyzY8NPscta3vEGA"
-        waze_url: "https://www.waze.com/ul?ll=53.2857188,-8.9873226&navigate=yes"
+        embed_url: "https://maps.google.com/maps?q=Kinnegad%20MOTORS%2C%20Baltigeer%2C%20Kinnegad%2C%20Co.%20Meath%2C%20N91%20HH95%2C%20Ireland&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        google_maps_url: "https://www.google.com/maps?vet=10CAAQoqAOahcKEwiowrzhmLaTAxUAAAAAHQAAAAAQDg..i&sca_esv=e2250487dc351849&udm=1&pvq=Cg0vZy8xMXowd3JscWs5IhQKDm1vdG9ycyBpcmVsYW5kEAIYAw&lqi=ChdraW5uZWdhZCBtb3RvcnMgaXJlbGFuZEiptOW7g76AgAhaLRABEAIYABgBGAIiF2tpbm5lZ2FkIG1vdG9ycyBpcmVsYW5kKgQIAhABMgJlbpIBCmNhcl9yZXBhaXI&fvr=1&cs=0&um=1&ie=UTF-8&fb=1&gl=ro&sa=X&ftid=0x29e95b4c9fe8d0fd:0xc300b43337372c42"
+        waze_url: "https://www.waze.com/ul?q=Kinnegad%20MOTORS%2C%20Baltigeer%2C%20Kinnegad%2C%20Co.%20Meath%2C%20N91%20HH95%2C%20Ireland&navigate=yes"
