@@ -4,6 +4,8 @@ class InquiriesController < ApplicationController
     @return_to = safe_return_to
 
     if @inquiry.save
+      TelegramNotifier.new.notify_new_inquiry(@inquiry)
+
       respond_to do |format|
         format.turbo_stream
         format.html do

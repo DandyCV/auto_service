@@ -13,6 +13,10 @@ RSpec.describe "Inquiries", type: :request do
       }
     end
 
+    before do
+      allow_any_instance_of(TelegramNotifier).to receive(:notify_new_inquiry).and_return(true)
+    end
+
     it "creates an inquiry and returns a turbo stream success response" do
       expect do
         post inquiries_path,
@@ -23,6 +27,14 @@ RSpec.describe "Inquiries", type: :request do
       expect(response).to have_http_status(:ok)
       expect(response.media_type).to eq("text/vnd.turbo-stream.html")
       expect(response.body).to include("Request Received")
+    end
+
+    it "sends a telegram notification after a successful inquiry" do
+      expect_any_instance_of(TelegramNotifier).to receive(:notify_new_inquiry).once
+
+      post inquiries_path,
+        params: valid_params.merge(return_to: contacts_path(anchor: "request"), frame_id: "contacts_inquiry_form"),
+        headers: { "ACCEPT" => "text/vnd.turbo-stream.html" }
     end
 
     it "returns validation errors inside the turbo frame" do
@@ -39,6 +51,18 @@ RSpec.describe "Inquiries", type: :request do
       expect(response).to have_http_status(:unprocessable_content)
       expect(response.body).to include("Please fix the highlighted fields.")
       expect(response.body).to include("Name can&#39;t be blank")
+    end
+
+    it "does not send a telegram notification when the inquiry is invalid" do
+      expect_any_instance_of(TelegramNotifier).not_to receive(:notify_new_inquiry)
+
+      post inquiries_path,
+        params: {
+          inquiry: valid_params[:inquiry].merge(name: "", comment: ""),
+          return_to: contacts_path(anchor: "request"),
+          frame_id: "contacts_inquiry_form"
+        },
+        headers: { "ACCEPT" => "text/vnd.turbo-stream.html" }
     end
 
     it "creates an inquiry when the comment is blank" do
