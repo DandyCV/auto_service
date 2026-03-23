@@ -23,8 +23,10 @@ RSpec.describe TelegramNotifier do
       request_capture = nil
 
       allow(response).to receive(:is_a?).with(Net::HTTPSuccess).and_return(true)
-      allow(Net::HTTP).to receive(:start) do |_host, _port, use_ssl:, &block|
+      allow(Net::HTTP).to receive(:start) do |_host, _port, use_ssl:, open_timeout:, read_timeout:, &block|
         expect(use_ssl).to be(true)
+        expect(open_timeout).to eq(5)
+        expect(read_timeout).to eq(5)
         http = double("http")
         allow(http).to receive(:request) do |request|
           request_capture = request
