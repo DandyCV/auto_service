@@ -1,10 +1,17 @@
 class Inquiry < ApplicationRecord
   INQUIRY_TYPES = [
-    "Diagnostics",
-    "Maintenance",
-    "Brake Service",
-    "Engine Repair",
-    "Electrical",
+    "Brake Systems",
+    "Steering and Suspension Repair",
+    "Tire Services",
+    "Oil Changes & Fluid Checks",
+    "Engine Diagnostics",
+    "Air and Cabin Filter Replacement",
+    "Battery and Auto Electrical",
+    "Bodywork and Trim",
+    "Exhaust Systems",
+    "Gearbox and Transmission Repair",
+    "Wheel Alignment",
+    "Pre-NCT Check",
     "Other"
   ].freeze
 

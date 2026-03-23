@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-cache-control" content="no-preview">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Auto Service">
+    <meta name="application-name" content="<%= t("layout.brand.name") %>">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#f36d21">
     <%= csrf_meta_tags %>
@@ -17,9 +17,9 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <%= favicon_link_tag "favicon.svg", type: "image/svg+xml" %>
+    <%= favicon_link_tag "logo.png", type: "image/png" %>
+    <%= favicon_link_tag "logo.png", rel: "apple-touch-icon" %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -31,8 +31,8 @@
       <header class="site-header" data-menu>
         <div class="container site-header__inner">
           <%= link_to root_path, class: "brand" do %>
-            <span class="brand__mark">AS</span>
-            <span class="brand__copy">
+            <%= image_tag "logo.png", alt: t("layout.brand.name"), class: "brand__logo" %>
+            <span class="brand__copy brand__copy--sr-only">
               <strong><%= t("layout.brand.name") %></strong>
               <span><%= t("layout.brand.tagline") %></span>
             </span>
@@ -65,7 +65,7 @@
       <footer class="site-footer">
         <div class="container site-footer__inner">
           <div>
-            <p class="site-footer__eyebrow"><%= t("layout.footer.eyebrow") %></p>
+            <%= image_tag "logo.png", alt: t("layout.footer.eyebrow"), class: "site-footer__logo" %>
             <p class="site-footer__copy"><%= t("layout.footer.copy") %></p>
           </div>
 

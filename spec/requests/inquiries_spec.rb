@@ -7,7 +7,7 @@ RSpec.describe "Inquiries", type: :request do
         inquiry: {
           name: "Alex Johnson",
           phone: "+1 (555) 014-2867",
-          inquiry_type: "Diagnostics",
+          inquiry_type: "Engine Diagnostics",
           comment: "The engine light is on and there is a rough idle."
         }
       }

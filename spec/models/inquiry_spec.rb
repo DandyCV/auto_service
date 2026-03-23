@@ -5,7 +5,7 @@ RSpec.describe Inquiry, type: :model do
     described_class.new(
       name: "Alex Johnson",
       phone: "+1 (555) 111-2233",
-      inquiry_type: "Diagnostics",
+      inquiry_type: "Engine Diagnostics",
       comment: "Engine light is on and the car shakes at idle."
     )
   end

@@ -5,7 +5,7 @@ RSpec.describe TelegramNotifier do
     Inquiry.create!(
       name: "Alex Johnson",
       phone: "+353 87 123 4567",
-      inquiry_type: "Diagnostics",
+      inquiry_type: "Engine Diagnostics",
       comment: "Engine light is on."
     )
   end
